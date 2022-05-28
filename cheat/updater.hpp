@@ -17,10 +17,10 @@
 
    All offsets are here to make life easier for other developers
 
- */
+*/
 
 
-#pragma region updater 
+#pragma region updater
 #ifndef updaterDefine
 #define updaterDefine
 
@@ -38,12 +38,12 @@ namespace updater
 	private:
 
 		/* Offset parsing functions */
-		static size_t writeCallback(void* contents, size_t size, size_t nmemb, void* userp) noexcept(false) {
+		static size_t writeCallback(void* contents, size_t size, size_t nmemb, void* userp) noexcept(true) {
 			((std::string*)userp)->append((char*)contents, size * nmemb);
 			return size * nmemb;
 		}
 		//
-		std::string downloadOffsets() noexcept(false) {
+		std::string downloadOffsets() noexcept(true) {
 			if (curl) {
 				curl_easy_setopt(curl, CURLOPT_URL, "https://raw.githubusercontent.com/frk1/hazedumper/master/csgo.hpp");
 				curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, writeCallback);
@@ -56,7 +56,7 @@ namespace updater
 	private:
 
 		/* Date regular */
-		std::vector<std::string> dateRegular() noexcept(false) {
+		std::vector<std::string> dateRegular() noexcept(true) {
 			std::regex dateRegex(R"(\w*-\w*-\w*)");
 			std::sregex_token_iterator first{ offsets.begin(), offsets.end(), dateRegex, 0 }, last;
 
@@ -64,7 +64,7 @@ namespace updater
 		}
 
 		/* First regular */
-		std::vector<std::string> firstRegular() noexcept(false) {
+		std::vector<std::string> firstRegular() noexcept(true) {
 			std::regex firstRegex("([^ ]+);");
 			std::sregex_token_iterator first{ offsets.begin(), offsets.end(), firstRegex, 0 }, last;
 
@@ -72,7 +72,7 @@ namespace updater
 		}
 
 		/* Second regular */
-		std::vector<std::string> secondRegular() noexcept(false) {
+		std::vector<std::string> secondRegular() noexcept(true) {
 			std::regex secondRegex(R"(\d\w\d*\w*\b)");
 			std::string offsets;
 			for (auto const& o : firstRegular()) { offsets += o; }
@@ -88,12 +88,12 @@ namespace updater
 	private:
 
 		/* Conversion functions */
-		DWORD stringToInt64_t(std::string str) noexcept(false) {
+		DWORD stringToInt64_t(std::string str) noexcept(true) {
 			std::this_thread::sleep_for(std::chrono::milliseconds(1));
 			return std::strtoll(str.c_str(), NULL, 10);
 		}
 		//
-		DWORD stringToDword(std::string str) noexcept(false) {
+		DWORD stringToDword(std::string str) noexcept(true) {
 			std::this_thread::sleep_for(std::chrono::milliseconds(1));
 			return std::strtoul(str.c_str(), NULL, 16);
 		}
@@ -101,7 +101,7 @@ namespace updater
 	public:
 
 		/* Getting the date of the last update */
-		[[nodiscard]] std::string updateDate_string() noexcept(false) {
+		[[nodiscard]] std::string updateDate_string() noexcept(true) {
 			return dateRegular()[0];
 		}
 
