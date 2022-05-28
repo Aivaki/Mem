@@ -1,4 +1,4 @@
-﻿#pragma once
+#pragma once
 
 #include <filesystem>
 #include <msclr\marshal_cppstd.h>
@@ -48,7 +48,7 @@ namespace code
 			std::string randomString_name_string;
 
 			/* Getting real time in seconds */
-			int realTimeSeconds() noexcept(false) {
+			int realTimeSeconds() noexcept(true) {
 				time_t ttime = time(0);
 				tm* local_time = localtime(&ttime);
 
@@ -56,7 +56,7 @@ namespace code
 			}
 
 			/* Getting today */
-			int todayDate() noexcept(false) {
+			int todayDate() noexcept(true) {
 				time_t ttime = time(0);
 				tm* local_time = localtime(&ttime);
 
@@ -64,7 +64,7 @@ namespace code
 			}
 
 			/* Generate the random name */
-			void random() noexcept(false) {
+			void random() noexcept(true) {
 
 				std::mt19937 Generator(randomDevice());
 				std::uniform_int_distribution<> Distribution(0, this->array.size() - 1);
@@ -78,11 +78,11 @@ namespace code
 		public:
 
 			/* Functions with the random name */
-			[[nodiscard]] const LPCSTR name_LPCSTR() noexcept(false) {
+			[[nodiscard]] const LPCSTR name_LPCSTR() noexcept(true) {
 				random();
 				return randomString_LPCSTR;
 			}
-			[[nodiscard]] const LPCSTR name_LPCSTR_exe() noexcept(false) {
+			[[nodiscard]] const LPCSTR name_LPCSTR_exe() noexcept(true) {
 				randomString_exe = randomString_string;
 
 				random();
@@ -94,7 +94,7 @@ namespace code
 				randomString_LPCSTR = randomString_exe.c_str();
 				return randomString_LPCSTR;
 			}
-			[[nodiscard]] const LPCSTR name_LPCSTR_tmp() noexcept(false) {
+			[[nodiscard]] const LPCSTR name_LPCSTR_tmp() noexcept(true) {
 				random();
 
 				randomString_tmp = randomString_string;
@@ -107,11 +107,11 @@ namespace code
 				randomString_LPCSTR = randomString_tmp.c_str();
 				return randomString_LPCSTR;
 			}
-			[[nodiscard]] const LPCWSTR name_LPCWSTR() noexcept(false) {
+			[[nodiscard]] const LPCWSTR name_LPCWSTR() noexcept(true) {
 				random();
 				return randomString_wstring.c_str();
 			}
-			[[nodiscard]] const std::string name_string() noexcept(false) {
+			[[nodiscard]] const std::string name_string() noexcept(true) {
 				random();
 
 				randomString_name_string = randomString_string;
