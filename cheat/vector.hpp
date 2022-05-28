@@ -19,7 +19,7 @@ namespace vector
 	public:
 
 		/* Functions for the correct work of the aimbot */
-		D3DXVECTOR3 clampAngles(D3DXVECTOR3 angles) const noexcept(false) {
+		D3DXVECTOR3 clampAngles(D3DXVECTOR3 angles) const noexcept(true) {
 			angles.x = std::clamp(angles.x, -89.0f, 89.0f);
 			angles.y = std::clamp(angles.y, -180.0f, 180.0f);
 			angles.z = 0.0f;
@@ -27,7 +27,7 @@ namespace vector
 			return angles;
 		}
 		//
-		D3DXVECTOR3 clamAngles(D3DXVECTOR3 currangle) const noexcept(false) {
+		D3DXVECTOR3 clamAngles(D3DXVECTOR3 currangle) const noexcept(true) {
 			D3DXVECTOR3 angles = currangle;
 			if (angles.x < -180.0f) angles.x += 360.0f;
 			if (angles.x > 180.0f) angles.x -= 360.0f;
@@ -39,7 +39,7 @@ namespace vector
 			return angles;
 		}
 		//
-		D3DXVECTOR3 calcAngle(const D3DXVECTOR3& src, const D3DXVECTOR3& dst) const noexcept(false) {
+		D3DXVECTOR3 calcAngle(const D3DXVECTOR3& src, const D3DXVECTOR3& dst) const noexcept(true) {
 			D3DXVECTOR3 angles;
 
 			D3DXVECTOR3 delta = { dst.x - src.x, dst.y - src.y, dst.z - src.z };
@@ -54,7 +54,7 @@ namespace vector
 			return angles;
 		}
 		//
-		void normalizeAngles(D3DXVECTOR3& angles) noexcept(false) {
+		void normalizeAngles(D3DXVECTOR3& angles) noexcept(true) {
 			if (angles.x < -180.0f) angles.x += 360.0f;
 			if (angles.x > 180.0f) angles.x -= 360.0f;
 
@@ -62,7 +62,7 @@ namespace vector
 			if (angles.y > 180.0f) angles.y -= 360.0f;
 		}
 		//
-		void vectorAngles(D3DXVECTOR3& forward, D3DXVECTOR3& angles) noexcept(false) {
+		void vectorAngles(D3DXVECTOR3& forward, D3DXVECTOR3& angles) noexcept(true) {
 			float tmp, yaw, pitch;
 
 			if (forward.y == 0.0f && forward.x == 0.0f) {
