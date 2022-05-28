@@ -30,7 +30,7 @@ namespace mem {
 	static const char* appName = Name.name_LPCSTR_tmp(); // Static global exe string for name return
 	CSGOMemory mem(L"csgo.exe", memory::SafeMemory_AllAccess, CSGOMemory::ConstructProcessName()); // Getting CSGO process
 
-	System::Void returnExeName() noexcept(false) {
+	System::Void returnExeName() noexcept(true) {
 		try {
 			std::string filename = appName;
 
@@ -62,7 +62,7 @@ namespace mem {
 		catch (Exception^ e) { customError(e); } // Catching something and exiting
 	}
 	//
-	System::Void fileSystemError() noexcept(false) {
+	System::Void fileSystemError() noexcept(true) {
 		try {
 			String^ caption = "Error";
 			String^ message = "Last activities folder has not exists.";
@@ -76,7 +76,7 @@ namespace mem {
 		catch (Exception^ e) { customError(e); } // Catching something and exiting
 	}
 	//
-	System::Void error() noexcept(false) {
+	System::Void error() noexcept(true) {
 		try {
 			String^ caption = "Error";
 			String^ message = "Something went wrong.";
