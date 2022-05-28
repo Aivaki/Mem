@@ -28,11 +28,11 @@ namespace localPlayer
 	public:
 
 		/* Getters */
-		DWORD getLocalPlayer(const CSGOMemory& mem) const noexcept(false) {
+		DWORD getLocalPlayer(const CSGOMemory& mem) const noexcept(true) {
 			return *mem.Read<DWORD>(mem.getClientBase() + Updater.dwLocalPlayer);
 		};
 		//
-		DWORD getClosestTarget(int fov, const CSGOMemory& mem) noexcept(false) {
+		DWORD getClosestTarget(int fov, const CSGOMemory& mem) noexcept(true) {
 
 			D3DXVECTOR3 viewAngles = getLocalViewAngles(mem);
 			D3DXVECTOR3 localEyePos = getLocalEyePos(mem);
@@ -58,55 +58,55 @@ namespace localPlayer
 			return bestEntity;
 		}
 		//
-		int getLocalFlags(const CSGOMemory& mem) const noexcept(false) {
+		int getLocalFlags(const CSGOMemory& mem) const noexcept(true) {
 			return *mem.Read<int>(getLocalPlayer(mem) + Updater.m_fFlags);
 		};
 		//
-		int getLocalHealth(const CSGOMemory& mem) const noexcept(false) {
+		int getLocalHealth(const CSGOMemory& mem) const noexcept(true) {
 			return *mem.Read<int>(getLocalPlayer(mem) + Updater.m_iHealth);
 		};
 		//
-		int getLocalTeam(const CSGOMemory& mem) const noexcept(false) {
+		int getLocalTeam(const CSGOMemory& mem) const noexcept(true) {
 			return *mem.Read<int>(getLocalPlayer(mem) + Updater.m_iTeamNum);
 		};
 		//
-		int getShotsFired(const CSGOMemory& mem) const noexcept(false) {
+		int getShotsFired(const CSGOMemory& mem) const noexcept(true) {
 			return *mem.Read<int>(getLocalPlayer(mem) + Updater.m_iShotsFired);
 		};
 		//
-		int getLocalCrossID(const CSGOMemory& mem) const noexcept(false) {
+		int getLocalCrossID(const CSGOMemory& mem) const noexcept(true) {
 			return *mem.Read<int>(getLocalPlayer(mem) + Updater.m_iCrosshairId);
 		};
 		//
-		D3DXVECTOR3 getLocalPos(const CSGOMemory& mem) const noexcept(false) {
+		D3DXVECTOR3 getLocalPos(const CSGOMemory& mem) const noexcept(true) {
 			return *mem.Read<D3DXVECTOR3>(getLocalPlayer(mem) + Updater.m_vecOrigin);
 		};
 		//
-		D3DXVECTOR3 getLocalEyePos(const CSGOMemory& mem) const noexcept(false) {
+		D3DXVECTOR3 getLocalEyePos(const CSGOMemory& mem) const noexcept(true) {
 			D3DXVECTOR3 localPos = getLocalPos(mem);
 			localPos += *mem.Read<D3DXVECTOR3>(getLocalPlayer(mem) + Updater.m_vecViewOffset);
 			return localPos;
 		};
 		//
-		D3DXVECTOR3 getLocalViewAngles(const CSGOMemory& mem) const noexcept(false) {
+		D3DXVECTOR3 getLocalViewAngles(const CSGOMemory& mem) const noexcept(true) {
 			return *mem.Read<D3DXVECTOR3>(Engine.getEnginePointer(mem) + Updater.dwClientState_ViewAngles);
 		};
 		//
-		D3DXMATRIX getLocalViewMatrix(const CSGOMemory& mem) const noexcept(false) {
+		D3DXMATRIX getLocalViewMatrix(const CSGOMemory& mem) const noexcept(true) {
 			return *mem.Read<D3DXMATRIX>(mem.getClientBase() + Updater.dwViewMatrix);
 		};
 		//
-		D3DXVECTOR3 getLocalPunchAngles(const CSGOMemory& mem) const noexcept(false) {
+		D3DXVECTOR3 getLocalPunchAngles(const CSGOMemory& mem) const noexcept(true) {
 			return *mem.Read<D3DXVECTOR3>(getLocalPlayer(mem) + Updater.m_aimPunchAngle);
 		};
 
 
 		/* Setters */
-		void setLocalViewAngles(const D3DXVECTOR3& angles, const CSGOMemory& mem) noexcept(false) {
+		void setLocalViewAngles(const D3DXVECTOR3& angles, const CSGOMemory& mem) noexcept(true) {
 			mem.Write<D3DXVECTOR3>(Engine.getEnginePointer(mem) + Updater.dwClientState_ViewAngles, angles);
 		}
 		//
-		void setFlashMaxAlpha(float& alpha, const CSGOMemory& mem) noexcept(false) {
+		void setFlashMaxAlpha(float& alpha, const CSGOMemory& mem) noexcept(true) {
 			mem.Write<float>(getLocalPlayer(mem) + Updater.m_flFlashMaxAlpha, alpha);
 		}
 		
@@ -177,7 +177,7 @@ namespace localPlayer
 
 
 		/* Final aimbot function */
-		void aimbot(const CSGOMemory& mem) noexcept(false) {
+		void aimbot(const CSGOMemory& mem) noexcept(true) {
 			for (;;) {
 				if (aimActive) {
 					std::this_thread::sleep_for(std::chrono::milliseconds(1));
@@ -188,39 +188,39 @@ namespace localPlayer
 		}
 
 		/* Aim getters */
-		bool getAimActive() const noexcept(false) {
+		bool getAimActive() const noexcept(true) {
 			return this->aimActive;
 		}
 		//
-		int getAimBone() const noexcept(false) {
+		int getAimBone() const noexcept(true) {
 			return this->aimBone;
 		}
 		//
-		int getAimSmooth() const noexcept(false) {
+		int getAimSmooth() const noexcept(true) {
 			return this->aimSmooth;
 		}
 		//
-		int getAimFov() const noexcept(false) {
+		int getAimFov() const noexcept(true) {
 			return this->aimFov;
 		}
 
 		/* Aim setters */
-		void setAimActive(bool value) noexcept(false) {
+		void setAimActive(bool value) noexcept(true) {
 			this->aimActive = value;
 		}
 		//
-		void setAimBone(int value) noexcept(false) {
+		void setAimBone(int value) noexcept(true) {
 			this->aimBone = value;
 		}
 		//
-		void setAimSmooth(int value) noexcept(false) {
+		void setAimSmooth(int value) noexcept(true) {
 			if (value > 100) value = 100;
 			if (value <= 0) value = 0;
 
 			this->aimSmooth = value;
 		}
 		//
-		void setAimFov(int value) noexcept(false) {
+		void setAimFov(int value) noexcept(true) {
 			if (value > 360) value = 360;
 			if (value <= 0) value = 0;
 
@@ -228,19 +228,19 @@ namespace localPlayer
 		}
 
 		/* Radar getters */
-		bool getRadarActive() const noexcept(false) {
+		bool getRadarActive() const noexcept(true) {
 			return this->radarActive;
 		}
 
 		/* Radar setters */
-		void setRadarActive(bool value) noexcept(false) {
+		void setRadarActive(bool value) noexcept(true) {
 			this->radarActive = value;
 		}
 
 	private:
 
 		/* Aimbot function */
-		void aim(const DWORD& player, const int& bone, const int& smooth, const CSGOMemory& mem) noexcept(false) {
+		void aim(const DWORD& player, const int& bone, const int& smooth, const CSGOMemory& mem) noexcept(true) {
 			if (player != NULL && Entity.isValid(player, mem) ) {
 
 				D3DXVECTOR3 aimAngles = Entity.getEntBonePos(player, bone, mem) - getLocalEyePos(mem);
