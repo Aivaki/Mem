@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Исходные файлы">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Файлы заголовков">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Файлы ресурсов">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Файлы заголовков\cheat">
+      <UniqueIdentifier>{d849d44c-328c-4724-9a67-bc0c7a46cc61}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы заголовков\cheat\backend">
+      <UniqueIdentifier>{28159892-9fec-4597-881d-36a177dacc11}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы заголовков\cheat\backend\offsets">
+      <UniqueIdentifier>{3e23e1c0-2b74-4725-bacb-5732cc64c4de}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы заголовков\cheat\backend\memory">
+      <UniqueIdentifier>{ac800ae3-b190-4e43-a91d-cc3fda3a2503}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы заголовков\cheat\backend\offsets\updater">
+      <UniqueIdentifier>{4ae2388d-58b5-4683-a9c4-ff2f3d4f43e3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Файлы заголовков\cheat\frontend and backend">
+      <UniqueIdentifier>{376b29ea-bc05-413f-a65e-c4cdd3f59446}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Исходные файлы\main">
+      <UniqueIdentifier>{e01693fa-6c1c-4734-938b-8e0a34f4f0c9}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="cheat\vector.hpp">
+      <Filter>Файлы заголовков\cheat\backend</Filter>
+    </ClCompile>
+    <ClCompile Include="memForm.cpp">
+      <Filter>Исходные файлы\main</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="memForm.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="cheat\memory.hpp">
+      <Filter>Файлы заголовков\cheat\backend\memory</Filter>
+    </ClInclude>
+    <ClInclude Include="cheat\csgoMemory.hpp">
+      <Filter>Файлы заголовков\cheat\backend\memory</Filter>
+    </ClInclude>
+    <ClInclude Include="cheat\engine.hpp">
+      <Filter>Файлы заголовков\cheat\backend</Filter>
+    </ClInclude>
+    <ClInclude Include="cheat\entity.hpp">
+      <Filter>Файлы заголовков\cheat\backend</Filter>
+    </ClInclude>
+    <ClInclude Include="cheat\localPlayer.hpp">
+      <Filter>Файлы заголовков\cheat\backend</Filter>
+    </ClInclude>
+    <ClInclude Include="cheat\updater.hpp">
+      <Filter>Файлы заголовков\cheat\backend\offsets\updater</Filter>
+    </ClInclude>
+    <ClInclude Include="appClasses.hpp">
+      <Filter>Файлы заголовков\cheat\frontend and backend</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="memForm.resx">
+      <Filter>Файлы ресурсов</Filter>
+    </EmbeddedResource>
+  </ItemGroup>
+</Project>
