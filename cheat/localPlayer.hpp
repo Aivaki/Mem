@@ -227,16 +227,6 @@ namespace localPlayer
 			this->aimFov = value;
 		}
 
-		/* Radar getters */
-		bool getRadarActive() const noexcept(true) {
-			return this->radarActive;
-		}
-
-		/* Radar setters */
-		void setRadarActive(bool value) noexcept(true) {
-			this->radarActive = value;
-		}
-
 	private:
 
 		/* Aimbot function */
