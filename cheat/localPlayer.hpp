@@ -262,9 +262,7 @@ namespace localPlayer
 		int aimBone = 0;
 		int aimSmooth = 0;
 		int aimFov = 0;
-
-		/* Radar variables */
-		bool radarActive = false;
+		
 	};
 }
 
