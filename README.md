@@ -1,3 +1,4 @@
+![BROKEN](https://img.shields.io/badge/BROKEN-red?style=for-the-badge)
 ![UNDETECTED](https://img.shields.io/badge/UNDETECTED-5aca4f?style=for-the-badge)
 ![Downloads](https://img.shields.io/github/downloads/Aivaki/Mem/total?color=lightgray&style=for-the-badge)
 [![BuyMeACoffee](https://img.shields.io/badge/Buy%20Me%20a%20Coffee-ffdd00?style=for-the-badge&logo=buy-me-a-coffee&logoColor=black)](https://www.buymeacoffee.com/aivaki)
